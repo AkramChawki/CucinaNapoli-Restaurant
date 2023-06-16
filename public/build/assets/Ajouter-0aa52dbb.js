@@ -1,0 +1,1 @@
+import{j as o,F as t,a as r}from"./app-76420757.js";import a from"./Formulaire-5635756d.js";import{F as m}from"./Footer-606f2365.js";import"./index-08c7c3df.js";function n(){return o(t,{children:[r(a,{}),r(m,{})]})}export{n as default};
