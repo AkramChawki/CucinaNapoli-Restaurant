@@ -43,7 +43,7 @@ Route::post('/cloture-caisse', function (Request $request) {
     Storage::disk('public')->put("/signatures/$imageName", base64_decode($image));
 
     ClotureCaisse::create(array_merge($request->all(), [
-        "signature" => "/signatures/$imageName"
+        "signature" => url("/") . "/storage/signatures/$imageName"
     ]));
 
     return redirect("/");
