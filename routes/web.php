@@ -40,10 +40,10 @@ Route::post('/cloture-caisse', function (Request $request) {
     $image = str_replace('data:image/png;base64,', '', $image);
     $image = str_replace(' ', '+', $image);
     $imageName = Str::random(10) . '.jpeg';
-    Storage::disk('public')->put("/signature/$imageName", base64_decode($image));
+    Storage::disk('public')->put("/signatures/$imageName", base64_decode($image));
 
     ClotureCaisse::create(array_merge($request->all(), [
-        "signature" => "/signature/$imageName"
+        "signature" => "/signatures/$imageName"
     ]));
 
     return redirect("/");
