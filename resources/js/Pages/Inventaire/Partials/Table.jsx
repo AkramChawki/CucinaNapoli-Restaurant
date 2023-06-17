@@ -74,7 +74,7 @@ export default function Table({ categories }) {
                                                 <tr key={`p-${product.id}`}>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                         <img
-                                                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png"
+                                                            src={"https://admin.cucinanapoli.com/storage/" + product.image}
                                                             alt=""
                                                             className="object-contain h-48 w-96 ..."
                                                         />
@@ -100,7 +100,7 @@ export default function Table({ categories }) {
                                                                     className="text-gray-500 sm:text-sm"
                                                                     id="price-currency"
                                                                 >
-                                                                    unité ({product.unit})
+                                                                    unité ({product.unite})
                                                                 </span>
                                                             </div>
                                                         </div>
