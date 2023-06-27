@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Models\ClotureCaisse;
 use App\Models\CuisinierCategory;
+use App\Models\CuisinierInventaire;
 use App\Models\CuisinierOrder;
 use App\Models\CuisinierProduct;
 use App\Models\ErreurCuisine;
@@ -85,8 +86,9 @@ Route::get('/commande-cuisinier', function () {
 });
 
 Route::get('/commande-cuisinier/commander', function () {
+    $actor = request("actor");
     return Inertia::render('CommandeCuisinier/Commander', [
-        "categories" => CuisinierCategory::with('products')->get()
+        "categories" => CuisinierCategory::where("acteur", "like", "%$actor%")->with('products')->get()
     ]);
 });
 Route::post('/commande-cuisinier/commander', [App\Http\Controllers\CommandeCuisinierController::class, 'store']);
@@ -96,8 +98,9 @@ Route::get('/inventaire', function () {
 });
 
 Route::get('/inventaire/stock', function () {
+    $actor = request("actor");
     return Inertia::render('Inventaire/Stock', [
-        "categories" => CuisinierCategory::with('products')->get()
+        "categories" => CuisinierCategory::where("acteur", "like", "%$actor%")->with('products')->get()
     ]);
 });
 
@@ -110,8 +113,9 @@ Route::post('/inventaire/stock', function (Request $request) {
 
     foreach ($request->ids as $i => $id) {
         if ($request->stocks[$i]) {
-            CuisinierProduct::find($id)->update([
-                "Stock" => $request->stocks[$i]
+            CuisinierInventaire::create([
+                "cuisinier_product_id" => $id,
+                "stock" => $request->stocks[$i],
             ]);
         }
     }

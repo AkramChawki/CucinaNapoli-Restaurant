@@ -93,7 +93,7 @@ export default function Table({ categories }) {
                                                                 name="stocks[]"
                                                                 className="focus:ring-green-500 focus:border-green-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
                                                                 placeholder="0.00"
-                                                                defaultValue={product.Stock}
+                                                                defaultValue={0}
                                                             />
                                                             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                                                 <span

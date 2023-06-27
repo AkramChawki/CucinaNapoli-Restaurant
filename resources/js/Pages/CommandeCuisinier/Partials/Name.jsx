@@ -1,9 +1,17 @@
+import { RadioGroup } from "@headlessui/react";
 import { Link } from "@inertiajs/react";
 import React from "react";
 import { useState } from "react";
 
+const actors = ["Cuisine", "Pizza", "Salle", "Labo"]
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
 export default function Name() {
     const [name, setName] = useState('');
+    const [selectedActor, setSelectedActor] = useState(actors[0])
     const handleChange = event => {
         setName(event.target.value);
     };
@@ -27,6 +35,59 @@ export default function Name() {
                         value={name}
                     />
                 </div>
+                <RadioGroup value={selectedActor} onChange={setSelectedActor}>
+                    <RadioGroup.Label className="text-base font-medium text-gray-900">Select Actor</RadioGroup.Label>
+
+                    <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
+                        {actors.map((actor) => (
+                            <RadioGroup.Option
+                                key={actor}
+                                value={actor}
+                                className={({ checked, active }) =>
+                                    classNames(
+                                        checked ? 'border-transparent' : 'border-gray-300',
+                                        active ? 'ring-2 ring-green-500' : '',
+                                        'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
+                                    )
+                                }
+                            >
+                                {({ checked, active }) => (
+                                    <>
+                                        <div className="flex-1 flex">
+                                            <div className="flex flex-col">
+                                                <RadioGroup.Label as="span" className="block text-sm font-medium text-gray-900">
+                                                    {actor}
+                                                </RadioGroup.Label>
+                                            </div>
+                                        </div>
+
+                                        <svg
+                                            className={classNames(!checked ? 'invisible' : '', 'h-5 w-5 text-green-600')}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                        <div
+                                            className={classNames(
+                                                active ? 'border' : 'border-2',
+                                                checked ? 'border-green-500' : 'border-transparent',
+                                                'absolute -inset-px rounded-lg pointer-events-none'
+                                            )}
+                                            aria-hidden="true"
+                                        />
+                                    </>
+                                )}
+                            </RadioGroup.Option>
+                        ))}
+                    </div>
+                </RadioGroup>
                 {name !== "" && (
                     <>
                         <Link
@@ -34,7 +95,7 @@ export default function Name() {
                             as="button"
                             href="/commande-cuisinier/commander"
                             method="get"
-                            data={{ nom: name }}
+                            data={{ nom: name, actor: selectedActor }}
                             className="inline-flex w-full mt-8 text-left items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                         >
                             Suivant
