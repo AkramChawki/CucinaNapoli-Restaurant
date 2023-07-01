@@ -1,0 +1,1 @@
+import{j as t,F as a,a as r}from"./app-a4a976e8.js";import s from"./Table-3a31fc56.js";import{F as e}from"./Footer-78d998c3.js";function n({categories:o}){return t(a,{children:[r(s,{categories:o}),r(e,{})]})}export{n as default};

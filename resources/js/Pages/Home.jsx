@@ -60,18 +60,18 @@ function Home() {
                 </main>
             </div>
             <div
-                className="min-h-full grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2"
+                className="min-h-full grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3"
                 id="restaurants"
             >
                 <div className="relative flex">
                     <img
-                        src="/images/restau/anoual.webp"
+                        src="/images/restau/green.jpeg"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
-                    <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
+                    <div className="relative w-full flex flex-col items-center justify-center text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                            Erreur Cuisine
+                            ERREUR CUISINE
                         </a>
                         <Link
                             href="/erreur-cuisine"
@@ -83,13 +83,13 @@ function Home() {
                 </div>
                 <div className="relative flex">
                     <img
-                        src="/images/restau/palmier.webp"
+                        src="/images/restau/white.jpeg"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
-                    <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="#" className="my-2 text-5xl font-bold text-white">
-                        Réclamations
+                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
+                        <a href="#" className="my-2 text-5xl font-bold text-black">
+                        RECLAMATIONS
                         </a>
                         <Link
                             href="/reclamations"
@@ -101,13 +101,13 @@ function Home() {
                 </div>
                 <div className="relative flex">
                     <img
-                        src="/images/restau/anoual.webp"
+                        src="/images/restau/red.png"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
-                    <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
+                    <div className="relative w-full flex flex-col items-center justify-center text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                            Commande Cuisinier
+                            COMMANDE CUISINIER
                         </a>
                         <Link
                             href="/commande-cuisinier"
@@ -119,13 +119,13 @@ function Home() {
                 </div>
                 <div className="relative flex">
                     <img
-                        src="/images/restau/palmier.webp"
+                        src="/images/restau/green.jpeg"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
-                    <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
+                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                        Inventaire
+                        INVENTAIRE
                         </a>
                         <Link
                             href="/inventaire"
@@ -137,13 +137,13 @@ function Home() {
                 </div>
                 <div className="relative flex">
                     <img
-                        src="/images/restau/anoual.webp"
+                        src="/images/restau/white.jpeg"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
-                    <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="#" className="my-2 text-5xl font-bold text-white">
-                            Cloture Caisse
+                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
+                        <a href="#" className="my-2 text-5xl font-bold text-black">
+                            CLOTURE CAISSE
                         </a>
                         <Link
                             href="/cloture-caisse"
@@ -155,13 +155,13 @@ function Home() {
                 </div>
                 <div className="relative flex">
                     <img
-                        src="/images/restau/palmier.webp"
+                        src="/images/restau/red.png"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
-                    <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
+                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                        Numeros
+                        NUMEROS
                         </a>
                         <Link
                             href="/numeros"
