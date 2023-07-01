@@ -70,7 +70,7 @@ function Home() {
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="https://www.google.com/maps/place/CUCINA+NAPOLI+-+Anoual+-+Restaurant+italien/@33.5692406,-7.6126558,15z/data=!4m2!3m1!1s0x0:0x33b97595312098d1?sa=X&ved=2ahUKEwjk-sSduaf_AhVHRKQEHT8rB0oQ_BJ6BAhlEAk" className="my-2 text-5xl font-bold text-white">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
                             Erreur Cuisine
                         </a>
                         <Link
@@ -88,7 +88,7 @@ function Home() {
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="https://www.google.com/maps/place/CUCINA+NAPOLI+-+Palmier+-+Restaurant+italien/@33.5792518,-7.6266445,15z/data=!4m2!3m1!1s0x0:0x4a188f323bca5ea6?sa=X&ved=2ahUKEwil3oiSuaf_AhXwTaQEHU_YDm4Q_BJ6BAhgEAk" className="my-2 text-5xl font-bold text-white">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
                         Réclamations
                         </a>
                         <Link
@@ -106,7 +106,7 @@ function Home() {
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="https://www.google.com/maps/place/CUCINA+NAPOLI+-+Anoual+-+Restaurant+italien/@33.5692406,-7.6126558,15z/data=!4m2!3m1!1s0x0:0x33b97595312098d1?sa=X&ved=2ahUKEwjk-sSduaf_AhVHRKQEHT8rB0oQ_BJ6BAhlEAk" className="my-2 text-5xl font-bold text-white">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
                             Commande Cuisinier
                         </a>
                         <Link
@@ -124,7 +124,7 @@ function Home() {
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="https://www.google.com/maps/place/CUCINA+NAPOLI+-+Palmier+-+Restaurant+italien/@33.5792518,-7.6266445,15z/data=!4m2!3m1!1s0x0:0x4a188f323bca5ea6?sa=X&ved=2ahUKEwil3oiSuaf_AhXwTaQEHU_YDm4Q_BJ6BAhgEAk" className="my-2 text-5xl font-bold text-white">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
                         Inventaire
                         </a>
                         <Link
@@ -142,7 +142,7 @@ function Home() {
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="https://www.google.com/maps/place/CUCINA+NAPOLI+-+Anoual+-+Restaurant+italien/@33.5692406,-7.6126558,15z/data=!4m2!3m1!1s0x0:0x33b97595312098d1?sa=X&ved=2ahUKEwjk-sSduaf_AhVHRKQEHT8rB0oQ_BJ6BAhlEAk" className="my-2 text-5xl font-bold text-white">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
                             Cloture Caisse
                         </a>
                         <Link
@@ -160,7 +160,7 @@ function Home() {
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center bg-black bg-opacity-40 text-center py-20">
-                        <a href="https://www.google.com/maps/place/CUCINA+NAPOLI+-+Palmier+-+Restaurant+italien/@33.5792518,-7.6266445,15z/data=!4m2!3m1!1s0x0:0x4a188f323bca5ea6?sa=X&ved=2ahUKEwil3oiSuaf_AhXwTaQEHU_YDm4Q_BJ6BAhgEAk" className="my-2 text-5xl font-bold text-white">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
                         Numeros
                         </a>
                         <Link

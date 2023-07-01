@@ -21,6 +21,7 @@ export default function Formulaire() {
         cartebancaire: "",
         LivE: "",
         LivC: "",
+        encaissement: "",
         signature: "",
     });
 
@@ -254,6 +255,25 @@ export default function Formulaire() {
                                             name="LivC"
                                             id="LivC"
                                             value={data.LivC} onChange={e => setData('LivC', e.target.value)}
+                                            className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label
+                                    htmlFor="encaissement"
+                                    className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                                >
+                                    Encaissement
+                                </label>
+                                <div className="mt-1 sm:mt-0 sm:col-span-2">
+                                    <div className="max-w-lg flex rounded-md shadow-sm">
+                                        <input
+                                            type="number"
+                                            name="encaissement"
+                                            id="encaissement"
+                                            value={data.encaissement} onChange={e => setData('encaissement', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
                                     </div>
