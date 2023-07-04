@@ -21,7 +21,7 @@ export default function Formulaire() {
         cartebancaire: "",
         LivE: "",
         LivC: "",
-        encaissement: "",
+        Compensation: "",
         signature: "",
     });
 
@@ -265,7 +265,7 @@ export default function Formulaire() {
                                     htmlFor="encaissement"
                                     className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                                 >
-                                    Encaissement
+                                    Compensation
                                 </label>
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
@@ -273,7 +273,7 @@ export default function Formulaire() {
                                             type="number"
                                             name="encaissement"
                                             id="encaissement"
-                                            value={data.encaissement} onChange={e => setData('encaissement', e.target.value)}
+                                            value={data.Compensation} onChange={e => setData('Compensation', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
                                     </div>
