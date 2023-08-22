@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Caisse1;
+use App\Models\Caisse2;
 use App\Models\ClotureCaisse;
 use App\Models\CuisinierCategory;
 use App\Models\CuisinierInventaire;
@@ -34,8 +36,11 @@ Route::get('/', function () {
 Route::get('/cloture-caisse', function () {
     return Inertia::render('ClotureCaisse/ClotureCaisse');
 });
+Route::get('/cloture-caisse/type', function () {
+    return Inertia::render('ClotureCaisse/Type');
+});
 
-Route::post('/cloture-caisse', function (Request $request) {
+Route::post('/cloture-caisse1', function (Request $request) {
 
     $image = $request->signature;
     $Commision_glovo = ($request->glovoC - (0.28*1.2*($request->glovoE + $request->glovoC)));
@@ -45,7 +50,27 @@ Route::post('/cloture-caisse', function (Request $request) {
     $imageName = Str::random(10) . '.jpeg';
     Storage::disk('public')->put("/signatures/$imageName", base64_decode($image));
 
-    ClotureCaisse::create(array_merge($request->all(), [
+    Caisse1::create(array_merge($request->all(), [
+        "signature" => url("/") . "/storage/signatures/$imageName",
+        "ComGlovo" => $Commision_glovo,
+        "ComLivraison" => $Commision_livraison
+    ]));
+
+
+    return redirect("/");
+});
+
+Route::post('/cloture-caisse2', function (Request $request) {
+
+    $image = $request->signature;
+    $Commision_glovo = ($request->glovoC - (0.28*1.2*($request->glovoE + $request->glovoC)));
+    $Commision_livraison = ($request->LivC - (0.15*1.2*($request->LivE + $request->LivC)));
+    $image = str_replace('data:image/png;base64,', '', $image);
+    $image = str_replace(' ', '+', $image);
+    $imageName = Str::random(10) . '.jpeg';
+    Storage::disk('public')->put("/signatures/$imageName", base64_decode($image));
+
+    Caisse2::create(array_merge($request->all(), [
         "signature" => url("/") . "/storage/signatures/$imageName",
         "ComGlovo" => $Commision_glovo,
         "ComLivraison" => $Commision_livraison

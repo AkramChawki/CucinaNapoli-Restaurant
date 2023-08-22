@@ -5,6 +5,7 @@ import SignatureCanvas from "react-signature-canvas";
 export default function Formulaire() {
     const queryParameters = new URLSearchParams(window.location.search);
     const name = queryParameters.get("nom");
+    const caisse = queryParameters.get("caisse");
     const [sign, setSign] = useState();
     const [url, setUrl] = useState();
 
@@ -21,6 +22,7 @@ export default function Formulaire() {
         cartebancaire: "",
         LivE: "",
         LivC: "",
+        virement: "",
         Compensation: "",
         signature: "",
     });
@@ -37,7 +39,12 @@ export default function Formulaire() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        post("/cloture-caisse");
+        if (caisse == "1") {
+            post("/cloture-caisse1");
+        }
+        if (caisse == "2") {
+            post("/cloture-caisse2");
+        }
     }
     return (
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 px-10 py-10">
@@ -265,14 +272,33 @@ export default function Formulaire() {
                                     htmlFor="encaissement"
                                     className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                                 >
+                                    Virement Instantané
+                                </label>
+                                <div className="mt-1 sm:mt-0 sm:col-span-2">
+                                    <div className="max-w-lg flex rounded-md shadow-sm">
+                                        <input
+                                            type="number"
+                                            name="virement"
+                                            id="virement"
+                                            value={data.virement} onChange={e => setData('virement', e.target.value)}
+                                            className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label
+                                    htmlFor="encaissement"
+                                    className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                                >
                                     Compensation
                                 </label>
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
                                             type="number"
-                                            name="encaissement"
-                                            id="encaissement"
+                                            name="compensation"
+                                            id="compensation"
                                             value={data.Compensation} onChange={e => setData('Compensation', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
@@ -319,12 +345,13 @@ export default function Formulaire() {
                     <img src={url} className="mx-auto" />
                 </div>
                 <div className="flex justify-end">
-                    <button
+                    <a
+                        href="/"  
                         type="button"
                         className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                     >
                         Cancel
-                    </button>
+                    </a>
                     <button
                         type="submit"
                         className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
