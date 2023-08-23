@@ -1,8 +1,6 @@
 import { Link } from "@inertiajs/react";
 
-export default function Table({ categories }) {
-    const queryParameters = new URLSearchParams(window.location.search);
-    const name = queryParameters.get("nom");
+export default function Table({ categories, ficheId, name }) {
     const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     return (
@@ -11,6 +9,7 @@ export default function Table({ categories }) {
                 <form method="post" action="/commande-cuisinier/commander" >
                     <input type="hidden" name="_token" defaultValue={csrf} />
                     <input type="hidden" name="name" defaultValue={name} />
+                    <input type="hidden" name="ficheId" defaultValue={ficheId} />
                     <div className="border-b border-gray-200 px-4 dark:border-gray-700">
                         <nav
                             className="flex space-x-2 justify-center"
@@ -59,12 +58,6 @@ export default function Table({ categories }) {
                                                     scope="col"
                                                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                                 >
-                                                    IMPUTATION
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                >
                                                     Quantité
                                                 </th>
                                                 <th
@@ -89,9 +82,6 @@ export default function Table({ categories }) {
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         {product.designation}
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                        {product.imputation}
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         <div className="mt-1 relative rounded-md shadow-sm">

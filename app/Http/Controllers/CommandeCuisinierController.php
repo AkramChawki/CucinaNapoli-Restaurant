@@ -11,21 +11,22 @@ class CommandeCuisinierController extends Controller
 {
     public function store(Request $request)
     {
-
+        $qty = collect($request->qty)->filter(function ($value) {
+            return $value !== null;
+        })->values();
         $detail = [];
         foreach ($request->products_ids as $i => $id) {
             $detail[] = [
                 "product_id" => $id,
-                "qty" => $request->qty[$i]
+                "qty" => $qty[$i]
             ];
         }
-
         $order = new CuisinierOrder();
         $order->name = $request->name;
         $order->detail = $detail;
         $order->save();
 
-        Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order));
+        // Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order));
 
         return redirect("/");
     }

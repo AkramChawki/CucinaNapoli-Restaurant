@@ -9,6 +9,7 @@ use App\Models\CuisinierInventaire;
 use App\Models\CuisinierOrder;
 use App\Models\CuisinierProduct;
 use App\Models\ErreurCuisine;
+use App\Models\Fiche;
 use App\Models\Number;
 use App\Models\Reclamation;
 use Illuminate\Http\Request;
@@ -112,13 +113,26 @@ Route::get('/erreur-cuisine/ajouter', function () {
 });
 
 Route::get('/commande-cuisinier', function () {
-    return Inertia::render('CommandeCuisinier/CommandeCuisinier');
+    return Inertia::render('CommandeCuisinier/CommandeCuisinier', [
+        "fiches" => Fiche::all()
+    ]);
 });
 
 Route::get('/commande-cuisinier/commander', function () {
-    $actor = request("actor");
+    
+    $ficheId = request("ficheId");
+    $name = request("nom");
+    $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
+    $categories = collect([]);
+    foreach ($products as $categoryId => $products) {
+        $category = CuisinierCategory::find($categoryId);
+        $category->products = $products;
+        $categories->push($category);
+    }
     return Inertia::render('CommandeCuisinier/Commander', [
-        "categories" => CuisinierCategory::where("acteur", "like", "%$actor%")->with('products')->get()
+        "categories" => $categories,
+        "ficheId" => $ficheId,
+        "name" => $name
     ]);
 });
 Route::post('/commande-cuisinier/commander', [App\Http\Controllers\CommandeCuisinierController::class, 'store']);
