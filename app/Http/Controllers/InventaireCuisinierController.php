@@ -26,7 +26,7 @@ class InventaireCuisinierController extends Controller
         $order->detail = $detail;
         $order->save();
 
-        Mail::to("akramchawki01@gmail.com")->send(new InventaireSummary($order));
+        Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order));
 
         return redirect("/");
     }
