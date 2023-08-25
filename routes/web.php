@@ -138,34 +138,30 @@ Route::get('/commande-cuisinier/commander', function () {
 Route::post('/commande-cuisinier/commander', [App\Http\Controllers\CommandeCuisinierController::class, 'store']);
 
 Route::get('/inventaire', function () {
-    return Inertia::render('Inventaire/Inventaire');
+    return Inertia::render('Inventaire/Inventaire', [
+        "fiches" => Fiche::all()
+    ]);
 });
 
 Route::get('/inventaire/stock', function () {
-    $actor = request("actor");
-    return Inertia::render('Inventaire/Stock', [
-        "categories" => CuisinierCategory::where("acteur", "like", "%$actor%")->with('products')->get()
-    ]);
-});
-
-Route::post('/inventaire/stock', function (Request $request) {
-    $request->validate([
-        "name" => "required",
-        "ids" => "required|array",
-        "stocks" => "required|array",
-    ]);
-
-    foreach ($request->ids as $i => $id) {
-        if ($request->stocks[$i]) {
-            CuisinierInventaire::create([
-                "cuisinier_product_id" => $id,
-                "stock" => $request->stocks[$i],
-            ]);
-        }
+    $ficheId = request("ficheId");
+    $name = request("nom");
+    $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
+    $categories = collect([]);
+    foreach ($products as $categoryId => $products) {
+        $category = CuisinierCategory::find($categoryId);
+        $category->products = $products;
+        $categories->push($category);
     }
-
-    return redirect("/");
+    return Inertia::render('Inventaire/Stock', [
+        "categories" => $categories,
+        "ficheId" => $ficheId,
+        "name" => $name
+    ]);
 });
+
+Route::post('/inventaire/stock', [App\Http\Controllers\InventaireCuisinierController::class, 'store']);
+
 
 Route::get('/numeros', function () {
     return Inertia::render('Numeros/Numeros');

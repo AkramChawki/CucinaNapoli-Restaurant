@@ -3,19 +3,18 @@ import { Link } from "@inertiajs/react";
 import React from "react";
 import { useState } from "react";
 
-const actors = ["Cuisine", "Pizza", "Salle", "Labo"]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Name() {
+export default function Name({fiches}) {
     const [name, setName] = useState('');
-    const [selectedActor, setSelectedActor] = useState(actors[0])
+    const [ficheId, setficheId] = useState(null);
     const handleChange = event => {
         setName(event.target.value);
     };
-    return ( 
+    return (
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 flex h-screen">
             <div className="m-auto w-[90%] relative   ">
                 <div className="border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-green-600 focus-within:border-green-600">
@@ -35,14 +34,14 @@ export default function Name() {
                         value={name}
                     />
                 </div>
-                <RadioGroup value={selectedActor} onChange={setSelectedActor}>
-                    <RadioGroup.Label className="text-base font-medium text-gray-900">Select Actor</RadioGroup.Label>
+                <RadioGroup value={ficheId} onChange={setficheId}>
+                    <RadioGroup.Label className="text-base font-medium text-gray-900">Select Fiche</RadioGroup.Label>
 
                     <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
-                        {actors.map((actor) => (
+                        {fiches.map((fiche) => (
                             <RadioGroup.Option
-                                key={actor}
-                                value={actor}
+                                key={fiche.id}
+                                value={fiche.id}
                                 className={({ checked, active }) =>
                                     classNames(
                                         checked ? 'border-transparent' : 'border-gray-300',
@@ -56,7 +55,7 @@ export default function Name() {
                                         <div className="flex-1 flex">
                                             <div className="flex flex-col">
                                                 <RadioGroup.Label as="span" className="block text-sm font-medium text-gray-900">
-                                                    {actor}
+                                                    {fiche.name}
                                                 </RadioGroup.Label>
                                             </div>
                                         </div>
@@ -88,17 +87,27 @@ export default function Name() {
                         ))}
                     </div>
                 </RadioGroup>
-                {name != "" && (
-                    <Link
-                        type="button"
-                        as="button"
-                        href="/inventaire/stock"
-                        method="get"
-                        data={{ nom: name, actor: selectedActor }}
-                        className="inline-flex w-full mt-8 text-left items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                    >
-                        Suivant
-                    </Link>
+                {name !== "" && (
+                    <>
+                        <Link
+                            type="button"
+                            as="button"
+                            href="/inventaire/stock"
+                            method="get"
+                            data={{ nom: name, ficheId }}
+                            className="inline-flex w-full mt-8 text-left items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                        >
+                            Suivant
+                        </Link>
+                        <Link
+                            type="button"
+                            as="button"
+                            href="/"
+                            className="inline-flex w-full mt-2 text-left items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                        >
+                            Annuler
+                        </Link>
+                    </>
 
                 )}
             </div>

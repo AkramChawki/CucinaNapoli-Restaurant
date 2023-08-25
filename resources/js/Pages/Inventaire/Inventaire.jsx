@@ -2,10 +2,10 @@ import React from 'react'
 import Name from './Partials/Name'
 import Footer from '@/Components/Footer'
 
-export default function Inventaire() {
+export default function Inventaire({fiches}) {
   return (
     <>
-    <Name />
+    <Name fiches={fiches}/>
     <Footer />
     </>
   )

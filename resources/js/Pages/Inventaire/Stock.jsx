@@ -2,11 +2,10 @@ import React from 'react'
 import Table from './Partials/Table'
 import Footer from '@/Components/Footer'
 
-export default function Stock({ categories }) {
+export default function Stock({ categories, ficheId, name }) {
   return (
     <>
-      <Table categories={categories} />
-      <Footer />
+      <Table categories={categories} ficheId={ficheId} name={name} />
     </>
   )
 }

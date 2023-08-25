@@ -20,6 +20,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@heroicons/react": "v1",
         "react-multivalue-text-input": "^2.5.0",
         "react-signature-canvas": "^1.0.6"
     }
