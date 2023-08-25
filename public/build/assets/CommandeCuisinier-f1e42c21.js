@@ -1,0 +1,1 @@
+import{j as m,F as t,a as r}from"./app-239b61e5.js";import i from"./Name-e2e7266c.js";import{F as a}from"./Footer-ef7d3230.js";import"./radio-group-100320bb.js";import"./use-flags-0dc8cf20.js";import"./description-b2d737a4.js";function F({fiches:o}){return m(t,{children:[r(i,{fiches:o}),r(a,{})]})}export{F as default};
