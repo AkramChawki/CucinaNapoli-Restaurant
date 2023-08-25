@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InventaireSummary;
 use App\Models\CuisinierInventaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class InventaireCuisinierController extends Controller
 {
@@ -24,7 +26,7 @@ class InventaireCuisinierController extends Controller
         $order->detail = $detail;
         $order->save();
 
-        // Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order));
+        // Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order));
 
         return redirect("/");
     }

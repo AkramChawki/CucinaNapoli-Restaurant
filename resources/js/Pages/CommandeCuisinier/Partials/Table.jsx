@@ -145,7 +145,7 @@ export default function Table({ categories, ficheId, name }) {
                                 </div>
                                 <div className="px-4 sm:px-6 md:px-0">
                                     <div className="py-4">
-                                        <form method="post" action="/inventaire/stock" >
+                                        <form method="post" action="/commande-cuisinier/commander" >
                                             <div>
                                                 <input type="hidden" name="_token" defaultValue={csrf} />
                                                 <input type="hidden" name="name" defaultValue={name} />

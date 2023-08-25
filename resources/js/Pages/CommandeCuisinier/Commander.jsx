@@ -6,7 +6,6 @@ export default function Commander({ categories, ficheId, name }) {
   return (
     <>
       <Table categories={categories} ficheId={ficheId} name={name} />
-      <Footer />
     </>
   )
 }
