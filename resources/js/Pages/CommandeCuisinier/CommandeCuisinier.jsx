@@ -2,10 +2,10 @@ import React from 'react'
 import Name from './Partials/Name'
 import Footer from '@/Components/Footer'
 
-export default function CommandeCuisinier({fiches}) {
+export default function CommandeCuisinier({ficheId}) {
   return (
     <>
-    <Name fiches={fiches}/>
+    <Name ficheId={ficheId}/>
     <Footer />
     </>
   )

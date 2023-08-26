@@ -1,6 +1,6 @@
 import { Head, Link } from "@inertiajs/react";
 
-function Home() {
+function Caissier() {
     return (
         <>
             <Head title="Accueil" />
@@ -60,7 +60,7 @@ function Home() {
                 </main>
             </div>
             <div
-                className="min-h-full grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-3"
+                className="min-h-full grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2"
                 id="restaurants"
             >
                 <div className="relative flex">
@@ -71,46 +71,10 @@ function Home() {
                     />
                     <div className="relative w-full flex flex-col items-center justify-center text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                            Caissier
+                            ERREUR CUISINE
                         </a>
                         <Link
-                            href="/caissier"
-                            className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
-                        >
-                            Accéder
-                        </Link>
-                    </div>
-                </div>
-                <div className="relative flex">
-                    <img
-                        src="/images/restau/white.jpeg"
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-center object-cover"
-                    />
-                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
-                        <a href="#" className="my-2 text-5xl font-bold text-black">
-                        Cuisinier
-                        </a>
-                        <Link
-                            href="/cuisinier"
-                            className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
-                        >
-                            Accéder
-                        </Link>
-                    </div>
-                </div>
-                <div className="relative flex">
-                    <img
-                        src="/images/restau/red.png"
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-center object-cover"
-                    />
-                    <div className="relative w-full flex flex-col items-center justify-center text-center py-20">
-                        <a href="#" className="my-2 text-5xl font-bold text-white">
-                            Laboratoire
-                        </a>
-                        <Link
-                            href="/laboratoire"
+                            href="/erreur-cuisine"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
@@ -125,10 +89,10 @@ function Home() {
                     />
                     <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                        Pizzaolo
+                        RECLAMATIONS
                         </a>
                         <Link
-                            href="/pizzaolo"
+                            href="/reclamations"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
@@ -137,40 +101,41 @@ function Home() {
                 </div>
                 <div className="relative flex">
                     <img
-                        src="/images/restau/white.jpeg"
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-center object-cover"
-                    />
-                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
-                        <a href="#" className="my-2 text-5xl font-bold text-black">
-                            Magasin Général
-                        </a>
-                        <Link
-                            href="/magasin"
-                            className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
-                        >
-                            Accéder
-                        </Link>
-                    </div>
-                </div>
-                <div className="relative flex">
-                    <img
-                        src="/images/restau/red.png"
+                        src="/images/restau/green.jpeg"
                         alt=""
                         className="absolute inset-0 w-full h-full object-center object-cover"
                     />
                     <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                        Salle
+                        NUMEROS
                         </a>
                         <Link
-                            href="/salle"
+                            href="/numeros"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
                         </Link>
                     </div>
                 </div>
+                <div className="relative flex">
+                    <img
+                        src="/images/restau/green.jpeg"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-center object-cover"
+                    />
+                    <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
+                        <a href="#" className="my-2 text-5xl font-bold text-white">
+                            CLOTURE CAISSE
+                        </a>
+                        <Link
+                            href="/cloture-caisse"
+                            className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
+                        >
+                            Accéder
+                        </Link>
+                    </div>
+                </div>
+                
             </div>
             <>
                 {/* This example requires Tailwind CSS v2.0+ */}
@@ -240,4 +205,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Caissier;

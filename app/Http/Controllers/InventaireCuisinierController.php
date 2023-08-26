@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\InventaireSummary;
 use App\Models\CuisinierInventaire;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -25,6 +26,8 @@ class InventaireCuisinierController extends Controller
         $order->name = $request->name;
         $order->detail = $detail;
         $order->save();
+        $pdf = Pdf::loadView('pdf.order-summary', compact("order"));
+        $order->pdf = $pdf;
 
         Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order));
 

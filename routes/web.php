@@ -33,6 +33,24 @@ use Illuminate\Support\Str;
 Route::get('/', function () {
     return Inertia::render('Home');
 });
+Route::get('/caissier', function () {
+    return Inertia::render('Caissier');
+});
+Route::get('/cuisinier', function () {
+    return Inertia::render('Cuisinier');
+});
+Route::get('/laboratoire', function () {
+    return Inertia::render('Laboratoire');
+});
+Route::get('/pizzaolo', function () {
+    return Inertia::render('Pizzaolo');
+});
+Route::get('/magasin', function () {
+    return Inertia::render('Magasin');
+});
+Route::get('/salle', function () {
+    return Inertia::render('Salle');
+});
 
 Route::get('/cloture-caisse', function () {
     return Inertia::render('ClotureCaisse/ClotureCaisse');
@@ -114,7 +132,7 @@ Route::get('/erreur-cuisine/ajouter', function () {
 
 Route::get('/commande-cuisinier', function () {
     return Inertia::render('CommandeCuisinier/CommandeCuisinier', [
-        "fiches" => Fiche::all()
+        "ficheId" => request("ficheId")
     ]);
 });
 
@@ -139,7 +157,7 @@ Route::post('/commande-cuisinier/commander', [App\Http\Controllers\CommandeCuisi
 
 Route::get('/inventaire', function () {
     return Inertia::render('Inventaire/Inventaire', [
-        "fiches" => Fiche::all()
+        "ficheId" => request("ficheId")
     ]);
 });
 
