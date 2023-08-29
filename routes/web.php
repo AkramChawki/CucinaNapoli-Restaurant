@@ -140,6 +140,7 @@ Route::middleware('auth')->group(function () {
 
         $ficheId = request("ficheId");
         $name = request("nom");
+        $restau = request("restau");
         $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
         $categories = collect([]);
         foreach ($products as $categoryId => $products) {
@@ -150,7 +151,8 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('CommandeCuisinier/Commander', [
             "categories" => $categories,
             "ficheId" => $ficheId,
-            "name" => $name
+            "name" => $name,
+            "restau" => $restau
         ]);
     });
     Route::post('/commande-cuisinier/commander', [App\Http\Controllers\CommandeCuisinierController::class, 'store']);
@@ -164,6 +166,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/inventaire/stock', function () {
         $ficheId = request("ficheId");
         $name = request("nom");
+        $restau = request("restau");
         $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
         $categories = collect([]);
         foreach ($products as $categoryId => $products) {
@@ -174,7 +177,8 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Inventaire/Stock', [
             "categories" => $categories,
             "ficheId" => $ficheId,
-            "name" => $name
+            "name" => $name,
+            "restau" => $restau
         ]);
     });
 
