@@ -26,6 +26,7 @@ class InventaireCuisinierController extends Controller
         }
         $order = new CuisinierInventaire();
         $order->name = $request->name;
+        $order->restau = $request->restau;
         $order->detail = $detail;
         $order->save();
         $pdf = Pdf::loadView('pdf.order-summary', compact("order"));
