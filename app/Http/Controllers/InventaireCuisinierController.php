@@ -17,10 +17,12 @@ class InventaireCuisinierController extends Controller
         })->values();
         $detail = [];
         foreach ($request->products_ids as $i => $id) {
-            $detail[] = [
-                "product_id" => $id,
-                "qty" => $qty[$i]
-            ];
+            if (isset($qty[$i]) && $qty[$i] !== null) {
+                $detail[] = [
+                    "product_id" => $id,
+                    "qty" => $qty[$i]
+                ];
+            }
         }
         $order = new CuisinierInventaire();
         $order->name = $request->name;

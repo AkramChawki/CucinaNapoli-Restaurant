@@ -1,12 +1,13 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import React from "react";
 
 export default function Formulaire() {
     const queryParameters = new URLSearchParams(window.location.search);
-    const name = queryParameters.get("nom");
-
+    const restau = queryParameters.get("restau");
+    const { auth } = usePage().props
     const { data, setData, post, processing, errors } = useForm({
-        name: name,
+        name: auth.user.name,
+        restau: restau,
         date: '',
         ticket: '',
         canal: '',
@@ -83,6 +84,7 @@ export default function Formulaire() {
                                         autoComplete="country-name"
                                         className="max-w-lg block focus:ring-green-500 focus:border-green-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
                                     >
+                                        <option selected>Selectionner le canal ...</option>
                                         <option value={"Livraison"}>Livraison</option>
                                         <option value={"A Emporter"}>A Emporter</option>
                                         <option value={"Glovo"}>Glovo</option>

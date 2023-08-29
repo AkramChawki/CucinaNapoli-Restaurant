@@ -11,6 +11,7 @@ class Caisse1 extends Model
 
     protected $fillable = [
         'name',
+        'restau',
         'date',
         'time',
         'caissierE',
@@ -26,6 +27,7 @@ class Caisse1 extends Model
         'ComGlovo',
         'ComLivraison',
         'virement',
+        'cheque',
         'signature',
     ];
 }

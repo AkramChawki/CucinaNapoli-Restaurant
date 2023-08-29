@@ -1,14 +1,16 @@
 import React from 'react'
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 
-export default function Table({ categories, ficheId, name }) {
+export default function Table({ categories, ficheId, restau }) {
+    const { auth } = usePage().props
     const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     return (
         <div className='max-w-7xl mx-auto sm:px-6 lg:px-8'>
             <form method="post" action="/commande-cuisinier/commander" >
                 <div>
                     <input type="hidden" name="_token" defaultValue={csrf} />
-                    <input type="hidden" name="name" defaultValue={name} />
+                    <input type="hidden" name="name" defaultValue={auth.user.name} />
+                    <input type="hidden" name="restau" defaultValue={restau} />
                     <input type="hidden" name="ficheId" defaultValue={ficheId} />
                     {categories.map((category) => (
                         <div key={`c-${category.id}`}>

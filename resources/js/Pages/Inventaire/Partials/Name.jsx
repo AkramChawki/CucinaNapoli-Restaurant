@@ -9,9 +9,15 @@ function classNames(...classes) {
 }
 
 export default function Name({ ficheId }) {
-    const [name, setName] = useState('');
+    const getInitialState = () => {
+        const restaurant = "";
+        return restaurant;
+    };
+
+    const [restaurant, setRestaurant] = useState(getInitialState);
+
     const handleChange = event => {
-        setName(event.target.value);
+        setRestaurant(event.target.value);
     };
     return (
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 flex h-screen">
@@ -21,26 +27,22 @@ export default function Name({ ficheId }) {
                         htmlFor="name"
                         className="px-1 bg-white text-xs font-medium text-gray-900"
                     >
-                        Votre Nom
+                        Choisissez le restaurant
                     </label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        className="w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
-                        placeholder=""
-                        onChange={handleChange}
-                        value={name}
-                    />
+                    <select value={restaurant} onChange={handleChange} id="restaurant" name="restaurant" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md">
+                        <option defaultValue={""}>Selectionner le restaurant ...</option>
+                        <option value="Anoual">Anoual</option>
+                        <option value="Palmier">Palmier</option>
+                    </select>
                 </div>
-                {name !== "" && (
+                {restaurant !== "" && (
                     <>
                         <Link
                             type="button"
                             as="button"
                             href="/inventaire/stock"
                             method="get"
-                            data={{ nom: name, ficheId }}
+                            data={{ restau: restaurant, ficheId }}
                             className="inline-flex w-full mt-8 text-left items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                         >
                             Suivant

@@ -17,13 +17,16 @@ class CommandeCuisinierController extends Controller
         })->values();
         $detail = [];
         foreach ($request->products_ids as $i => $id) {
-            $detail[] = [
-                "product_id" => $id,
-                "qty" => $qty[$i]
-            ];
+            if (isset($qty[$i]) && $qty[$i] !== null) {
+                $detail[] = [
+                    "product_id" => $id,
+                    "qty" => $qty[$i]
+                ];
+            }
         }
         $order = new CuisinierOrder();
         $order->name = $request->name;
+        $order->restau = $request->restau;
         $order->detail = $detail;
         $order->save();
         $pdf = Pdf::loadView('pdf.order-summary', compact("order"));

@@ -1,11 +1,13 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import React from "react";
 
 export default function Formulaire() {
+    const { auth } = usePage().props
     const queryParameters = new URLSearchParams(window.location.search);
-    const name = queryParameters.get("nom");
+    const restau = queryParameters.get("restau");
     const { data, setData, post, processing, errors } = useForm({
-        name: name,
+        name: auth.user.name,
+        restau: restau,
         date: '',
         erreur: '',
     })

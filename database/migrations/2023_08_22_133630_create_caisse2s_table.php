@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('caisse2s', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("restau");
             $table->string("date");
             $table->string("time");
             $table->string("caissierE");
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->float("ComGlovo");
             $table->float("ComLivraison");
             $table->float("virement");
+            $table->float("cheque");
             $table->float("Compensation");
             $table->string("signature");
             $table->timestamps();

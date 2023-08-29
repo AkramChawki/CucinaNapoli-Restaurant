@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Type() {
     const queryParameters = new URLSearchParams(window.location.search);
-    const name = queryParameters.get("nom");
+    const restaurant = queryParameters.get("restau");
     const caisse = "";
     return (
         <div className='h-screen flex items-center justify-center'>
@@ -18,7 +18,7 @@ export default function Type() {
                         <div className="flex mt-4 space-x-3 md:mt-6">
                             <Link type="button"
                             as="button" method="get"
-                            data={{ nom: name, caisse: "1" }} href="/cloture-caisse/ajouter" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-green-900 bg-white border border-green-300 rounded-lg hover:bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 dark:bg-green-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700 dark:hover:border-green-700 dark:focus:ring-green-700">Accéder</Link>
+                            data={{ restau: restaurant, caisse: "1" }} href="/cloture-caisse/ajouter" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-green-900 bg-white border border-green-300 rounded-lg hover:bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 dark:bg-green-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700 dark:hover:border-green-700 dark:focus:ring-green-700">Accéder</Link>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ export default function Type() {
                         <div className="flex mt-4 space-x-3 md:mt-6">
                             <Link type="button"
                             as="button" method="get"
-                            data={{ nom: name, caisse: "2" }} href="/cloture-caisse/ajouter" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-green-900 bg-white border border-green-300 rounded-lg hover:bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 dark:bg-green-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700 dark:hover:border-green-700 dark:focus:ring-green-700">Accéder</Link>
+                            data={{ restau: restaurant, caisse: "2" }} href="/cloture-caisse/ajouter" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-green-900 bg-white border border-green-300 rounded-lg hover:bg-green-100 focus:ring-4 focus:outline-none focus:ring-green-200 dark:bg-green-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700 dark:hover:border-green-700 dark:focus:ring-green-700">Accéder</Link>
                         </div>
                     </div>
                 </div>
