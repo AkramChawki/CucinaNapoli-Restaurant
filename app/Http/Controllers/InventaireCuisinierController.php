@@ -32,7 +32,7 @@ class InventaireCuisinierController extends Controller
         $pdf = Pdf::loadView('pdf.order-summary', compact("order"));
         $order->pdf = $pdf;
 
-        Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order));
+        // Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order));
 
         return redirect("/");
     }
