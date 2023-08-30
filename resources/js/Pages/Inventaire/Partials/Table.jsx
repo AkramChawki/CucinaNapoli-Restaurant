@@ -15,7 +15,7 @@ export default function Table({ categories, ficheId, restau }) {
                     {categories.map((category) => (
                         <div key={`c-${category.id}`}>
                             <h1 className='p-4 text-4xl font-bold text'>{category.name}</h1>
-                            <div className="mt-12 max-w-lg mx-auto grid gap-3 lg:grid-cols-5 lg:max-w-none">
+                            <div className="mt-12 max-w-4xl mx-auto grid gap-3 lg:grid-cols-4 md:grid-cols-3  sm:grid-cols-1 lg:max-w-none">
                             {category.products.map(product => (
                                 <div key={`p-${product.id}`} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                                     <div className="flex-shrink-0">
@@ -27,8 +27,8 @@ export default function Table({ categories, ficheId, restau }) {
                                                 <p className="text-xl font-semibold text-gray-900 text-center">{product.designation}</p>
                                             </a>
                                         </div>
-                                        <div className="mt-6 flex items-center">
-                                            <div className="ml-3">
+                                        <div className="mt-6 flex justify-center">
+                                            <div className="ml-3 w-full">
                                                 <input
                                                     type="number"
                                                     name="qty[]"
