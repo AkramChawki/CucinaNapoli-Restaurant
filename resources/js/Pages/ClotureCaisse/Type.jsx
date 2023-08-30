@@ -8,7 +8,7 @@ export default function Type() {
     return (
         <div className='h-screen flex items-center justify-center'>
             <div className='grid md:grid-cols-2 grid-cols-1 w-[1200px] justify-items-center'>
-                <div className="w-full max-w-sm border rounded-lg shadowbg-green-700 border-green-700">
+                <div className="w-full max-w-sm border rounded-lg shadow bg-green-700 border-green-700">
                     <div className="flex justify-end px-4 pt-8">
                     </div>
                     <div className="flex flex-col items-center pb-10">

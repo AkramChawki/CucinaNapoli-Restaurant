@@ -1,0 +1,1 @@
+import{j as o,F as a,a as r}from"./app-d76001c7.js";import s from"./Name-09c66644.js";import{F as t}from"./Footer-b69acb6f.js";function f(){return o(a,{children:[r(s,{}),r(t,{})]})}export{f as default};
