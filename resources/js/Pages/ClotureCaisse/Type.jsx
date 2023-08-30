@@ -8,13 +8,13 @@ export default function Type() {
     return (
         <div className='h-screen flex items-center justify-center'>
             <div className='grid md:grid-cols-2 grid-cols-1 w-[1200px] justify-items-center'>
-                <div className="w-full max-w-sm bg-white border border-green-200 rounded-lg shadow dark:bg-green-700 dark:border-green-700">
+                <div className="w-full max-w-sm border rounded-lg shadowbg-green-700 border-green-700">
                     <div className="flex justify-end px-4 pt-8">
                     </div>
                     <div className="flex flex-col items-center pb-10">
                         <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="/images/logo/caisse.png" alt="Bonnie image" />
-                        <h5 className="mb-1 text-xl font-medium text-green-900 dark:text-white">Cloture Caisse</h5>
-                        <span className="text-sm text-white dark:text-white">12h-18h</span>
+                        <h5 className="mb-1 text-xl font-mediumtext-white">Cloture Caisse</h5>
+                        <span className="text-sm text-white">12h-18h</span>
                         <div className="flex mt-4 space-x-3 md:mt-6">
                             <Link type="button"
                             as="button" method="get"
@@ -22,13 +22,13 @@ export default function Type() {
                         </div>
                     </div>
                 </div>
-                <div className="w-full max-w-sm bg-white border border-green-200 rounded-lg shadow dark:bg-green-700 dark:border-green-700">
+                <div className="w-full max-w-sm border rounded-lg shadow bg-green-700 border-green-700">
                     <div className="flex justify-end px-4 pt-8">
                     </div>
                     <div className="flex flex-col items-center pb-10">
                         <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="/images/logo/caisse.png" alt="Bonnie image" />
-                        <h5 className="mb-1 text-xl font-medium text-green-900 dark:text-white">Cloture Caisse</h5>
-                        <span className="text-sm text-white dark:text-white">18h-00h</span>
+                        <h5 className="mb-1 text-xl font-mediumtext-white">Cloture Caisse</h5>
+                        <span className="text-sm text-white">18h-00h</span>
                         <div className="flex mt-4 space-x-3 md:mt-6">
                             <Link type="button"
                             as="button" method="get"
