@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cuisinier_orders', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("restau");
+            $table->string("restau")->nullable();
             $table->json("detail");
             $table->timestamps();
         });

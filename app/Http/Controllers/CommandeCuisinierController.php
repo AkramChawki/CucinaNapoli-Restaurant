@@ -29,8 +29,8 @@ class CommandeCuisinierController extends Controller
         $order->restau = $request->restau;
         $order->detail = $detail;
         $order->save();
-        $pdf = Pdf::loadView('pdf.order-summary', compact("order"));
-        $order->pdf = $pdf;
+        // $pdf = Pdf::loadView('pdf.order-summary', compact("order"));
+        // $order->pdf = $pdf;
 
         // Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order));
 

@@ -131,9 +131,26 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/commande-cuisinier', function () {
-        return Inertia::render('CommandeCuisinier/CommandeCuisinier', [
-            "ficheId" => request("ficheId")
-        ]);
+        $ficheId = request("ficheId");
+        if ($ficheId == 2 || $ficheId == 3) {
+            $name = request("nom");
+            $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
+            $categories = collect([]);
+            foreach ($products as $categoryId => $products) {
+                $category = CuisinierCategory::find($categoryId);
+                $category->products = $products;
+                $categories->push($category);
+            }
+            return Inertia::render('CommandeCuisinier/Commander', [
+                "categories" => $categories,
+                "ficheId" => $ficheId,
+                "name" => $name,
+            ]);
+        } else {
+            return Inertia::render('CommandeCuisinier/CommandeCuisinier', [
+                "ficheId" => request("ficheId")
+            ]);
+        }
     });
 
     Route::get('/commande-cuisinier/commander', function () {
@@ -158,9 +175,26 @@ Route::middleware('auth')->group(function () {
     Route::post('/commande-cuisinier/commander', [App\Http\Controllers\CommandeCuisinierController::class, 'store']);
 
     Route::get('/inventaire', function () {
-        return Inertia::render('Inventaire/Inventaire', [
-            "ficheId" => request("ficheId")
-        ]);
+        $ficheId = request("ficheId");
+        if ($ficheId == 2 || $ficheId == 3 || $ficheId == 7) {
+            $name = request("nom");
+            $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
+            $categories = collect([]);
+            foreach ($products as $categoryId => $products) {
+                $category = CuisinierCategory::find($categoryId);
+                $category->products = $products;
+                $categories->push($category);
+            }
+            return Inertia::render('Inventaire/Stock', [
+                "categories" => $categories,
+                "ficheId" => $ficheId,
+                "name" => $name,
+            ]);
+        } else {
+            return Inertia::render('Inventaire/Inventaire', [
+                "ficheId" => $ficheId
+            ]);
+        }
     });
 
     Route::get('/inventaire/stock', function () {
