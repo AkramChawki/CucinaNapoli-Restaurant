@@ -355,8 +355,8 @@
 
                                     <img align="center" border="0" src="https://admin.cucinanapoli.com/storage/{{ $p->image }}" alt="Hand Bag"
                                       title="Hand Bag"
-                                      style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 85%;max-width: 98.34px;"
-                                      width="98.34" />
+                                      style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;float: none;"
+                                      width="60px" height="60px" />
 
                                   </td>
                                 </tr>
