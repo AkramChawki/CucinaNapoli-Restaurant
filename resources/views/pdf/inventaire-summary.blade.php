@@ -123,7 +123,7 @@
 		<div class="inv-title">
 			<h1>Document</h1>
 		</div>
-		<img src="{{ asset("images/logo/logo.png") }}" class="inv-logo" />
+		<img src="https://restaurant.cucinanapoli.com/images/logo/logo.jpg" class="inv-logo" />
 		<div class="inv-header">
 			<div>
 				<h2>Cucina Napoli - Anoual</h2>
