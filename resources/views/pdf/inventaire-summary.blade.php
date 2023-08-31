@@ -123,7 +123,7 @@
 		<div class="inv-title">
 			<h1>Document</h1>
 		</div>
-		<img src="https://admin.cucinanapoli.com/images/logo/logo.webp" class="inv-logo" />
+		<img src="https://admin.cucinanapoli.com/images/logo/logo.png" class="inv-logo" />
 		<div class="inv-header">
 			<div>
 				<h2>Cucina Napoli - Anoual</h2>
@@ -164,7 +164,7 @@
           @foreach ($order->products() as $p)
 					<tr>
 						<td>
-							<img src="https://admin.cucinanapoli.com/storage/{{ $p->image }}" alt="" style="display:block;" width="90px" height="90px">
+							<img src="https://admin.cucinanapoli.com/storage/{{ $p->image }}" alt="" style="display:block;" width="40px" height="40px">
 						</td>
 						<td>
 							<h4>{{ $p->designation }}</h4>
