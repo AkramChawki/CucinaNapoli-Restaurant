@@ -9,7 +9,10 @@ export default function Formulaire() {
         name: auth.user.name,
         restau: restau,
         date: '',
-        erreur: '',
+        produit: '',
+        entite: '',
+        plat: '',
+        motif: '',
     })
 
     function submit(e) {
@@ -23,14 +26,14 @@ export default function Formulaire() {
                     <div>
                         <div>
                             <h3 className="text-lg leading-6 font-medium text-gray-900">
-                                Erreur Cuisine
+                                Fiche d'Expiration
                             </h3>
                         </div>
 
                         <div className="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
                             <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                                 <label
-                                    htmlFor="username"
+                                    htmlFor="date"
                                     className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                                 >
                                     Date
@@ -49,19 +52,83 @@ export default function Formulaire() {
                             </div>
                             <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                                 <label
-                                    htmlFor="about"
+                                    htmlFor="produit"
                                     className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                                 >
-                                    Erreur Cuisine
+                                    Produit
+                                </label>
+                                <div className="mt-1 sm:mt-0 sm:col-span-2">
+                                    <div className="max-w-lg flex rounded-md shadow-sm">
+                                        <input
+                                            type="text"
+                                            name="produit"
+                                            id="produit"
+                                            value={data.produit} onChange={e => setData('produit', e.target.value)}
+                                            className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label
+                                    htmlFor="entite"
+                                    className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                                >
+                                    Entite
+                                </label>
+                                <div className="mt-1 sm:mt-0 sm:col-span-2">
+                                    <select
+                                        id="entite"
+                                        name="entite"
+                                        value={data.entite} onChange={e => setData('entite', e.target.value)}
+                                        className="max-w-lg block focus:ring-green-500 focus:border-green-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                    >
+                                        <option selected>Selectionner l'entite ...</option>
+                                        <option value={"Cuisine"}>Cuisine</option>
+                                        <option value={"Pizzeria"}>Pizzeria</option>
+                                        <option value={"Salle"}>Salle</option>
+                                        <option value={"Laboratoire"}>Laboratoire</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label
+                                    htmlFor="plat"
+                                    className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                                >
+                                    Plat ou Produit expire
                                 </label>
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <textarea
-                                        id="erreur"
-                                        name="erreur"
+                                        id="plat"
+                                        name="plat"
+                                        value={data.plat} onChange={e => setData('plat', e.target.value)}
                                         rows={3}
-                                        value={data.erreur} onChange={e => setData('erreur', e.target.value)}
                                         className="max-w-lg shadow-sm block w-full focus:ring-green-500 focus:border-green-500 sm:text-sm border border-gray-300 rounded-md"
                                     />
+                                </div>
+                            </div>
+                            <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                                <label
+                                    htmlFor="motif"
+                                    className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                                >
+                                    Motif d'Expiration
+                                </label>
+                                <div className="mt-1 sm:mt-0 sm:col-span-2">
+                                    <select
+                                        id="motif"
+                                        name="motif"
+                                        value={data.motif} onChange={e => setData('motif', e.target.value)}
+                                        className="max-w-lg block focus:ring-green-500 focus:border-green-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                    >
+                                        <option selected>Selectionner le motif ...</option>
+                                        <option value={"Decongele"}>Decongele</option>
+                                        <option value={"Date Expire"}>Date Expire</option>
+                                        <option value={"Mauvais Gout"}>Mauvais Gout</option>
+                                        <option value={"Manipulation"}>Manipulation</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

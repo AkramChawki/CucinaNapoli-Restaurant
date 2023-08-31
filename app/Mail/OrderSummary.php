@@ -17,12 +17,15 @@ class OrderSummary extends Mailable
 
     public CuisinierOrder $order;
 
+    public $pdf;
+
     /**
      * Create a new message instance.
      */
-    public function __construct($order)
+    public function __construct($order, $pdf)
     {
         $this->order = $order;
+        $this->pdf = $pdf;
     }
 
     /**
@@ -54,7 +57,7 @@ class OrderSummary extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromData(fn () => $this->order->pdf->output(), 'order-summary.pdf')
+            Attachment::fromData(fn () => $this->pdf->output(), 'order-summary.pdf')
                 ->withMime('application/pdf'),
         ];
     }
