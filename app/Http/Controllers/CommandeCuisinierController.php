@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\SendEmailOrderQueueJob;
-use App\Jobs\SendEmailQueueJob;
+use App\Mail\OrderSummary;
 use App\Models\CuisinierOrder;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CommandeCuisinierController extends Controller
 {
@@ -29,8 +30,11 @@ class CommandeCuisinierController extends Controller
         $order->restau = $request->restau;
         $order->detail = $detail;
         $order->save();
+        $pdf_name = "Commande-".$order->created_at->format("d-m-Y").".pdf";
+        $pdf = Pdf::loadView('pdf.inventaire-summary', compact("order"))
+            ->save(public_path("storage/documents/$pdf_name"));
 
-        dispatch(new SendEmailOrderQueueJob($order));
+        Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order, $pdf_name));
 
         return redirect("/");
     }

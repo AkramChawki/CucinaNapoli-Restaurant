@@ -45,7 +45,7 @@ class InventaireSummary extends Mailable
     {
         return new Content(
             view: 'emails.inventaire-summary',
-            with: ["order" => $this->order]
+            with: ["order" => $this->order, "pdf" => $this->pdf]
         );
     }
 
@@ -57,8 +57,6 @@ class InventaireSummary extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromData(fn () => $this->pdf->output(), "Inventaire-".$this->order->created_at->format("d-m-Y").".pdf")
-                ->withMime('application/pdf'),
         ];
     }
 }

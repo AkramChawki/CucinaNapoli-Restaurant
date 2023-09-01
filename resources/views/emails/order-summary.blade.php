@@ -186,7 +186,26 @@
                                 style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
                                 <p style="font-size: 14px; line-height: 140%;"><span
                                     style="font-size: 18px; line-height: 25.2px; font-family: Montserrat, sans-serif;"><strong><span
-                                        style="line-height: 25.2px; font-size: 18px;">Nouvelle Commande <br> par : </span></strong></span></p>
+                                        style="line-height: 25.2px; font-size: 18px;">Nouvelle Commande <br> par : </span>{{ $order->name }}</strong></span></p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0"
+                        cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td
+                              style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;"
+                              align="left">
+
+                              <div
+                                style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;"><span
+                                    style="font-size: 18px; line-height: 25.2px; font-family: Montserrat, sans-serif;"><strong><span
+                                        style="line-height: 25.2px; font-size: 18px;">Télécharger PDF <br> </span><a href="{{ asset("storage/documents/$pdf") }}">{{ $pdf }}</a></strong></span></p>
                               </div>
 
                             </td>
