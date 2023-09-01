@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailInventoryQueueJob;
 use App\Mail\InventaireSummary;
 use App\Models\CuisinierInventaire;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 
 class InventaireCuisinierController extends Controller
 {
     public function store(Request $request)
     {
+        set_time_limit(500);
+        Artisan::call("optimize:clear");
         $qty = collect($request->qty)->filter(function ($value) {
             return $value !== null;
         })->values();
@@ -29,9 +33,8 @@ class InventaireCuisinierController extends Controller
         $order->restau = $request->restau;
         $order->detail = $detail;
         $order->save();
-        $pdf = Pdf::loadView('pdf.inventaire-summary', compact("order"));
 
-        Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order, $pdf));
+        dispatch(new SendEmailInventoryQueueJob($order));
 
         return redirect("/");
     }
