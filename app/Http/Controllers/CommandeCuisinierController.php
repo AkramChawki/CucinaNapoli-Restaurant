@@ -30,7 +30,7 @@ class CommandeCuisinierController extends Controller
         $order->restau = $request->restau;
         $order->detail = $detail;
         $order->save();
-        $pdf_name = "Commande-".$order->created_at->format("d-m-Y").".pdf";
+        $pdf_name = "Commande-".$order->created_at->format("d-m-Y")."-".$order->id.".pdf";
         $pdf = Pdf::loadView('pdf.inventaire-summary', compact("order"))
             ->save(public_path("storage/documents/$pdf_name"));
 

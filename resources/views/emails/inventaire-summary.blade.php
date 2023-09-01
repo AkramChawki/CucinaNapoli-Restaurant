@@ -160,10 +160,6 @@
                                 <tr>
                                   <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                    <img align="center" border="0" src="https://restaurant.cucinanapoli.com/images/cart.png" alt="Cart Icon"
-                                      title="Cart Icon"
-                                      style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 15%;max-width: 72px;"
-                                      width="72" />
 
                                   </td>
                                 </tr>
