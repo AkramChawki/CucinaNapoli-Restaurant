@@ -126,7 +126,7 @@ function Home() {
                     />
                     <div className="relative w-full flex flex-col items-center justify-center  text-center py-20">
                         <a href="#" className="my-2 text-5xl font-bold text-white">
-                            Pizzaolo
+                            Pizzaiolo
                         </a>
                         <Link
                             href="/pizzaolo"

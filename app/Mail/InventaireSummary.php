@@ -57,7 +57,7 @@ class InventaireSummary extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromData(fn () => $this->pdf->output(), 'Inventory.pdf')
+            Attachment::fromData(fn () => $this->pdf->output(), "Inventaire-".$this->order->created_at->format("d-m-Y").".pdf")
                 ->withMime('application/pdf'),
         ];
     }

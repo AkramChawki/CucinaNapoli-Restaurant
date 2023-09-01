@@ -126,18 +126,22 @@
 		<img src="https://restaurant.cucinanapoli.com/images/logo/logo.jpg" class="inv-logo" />
 		<div class="inv-header">
 			<div>
+			    @if ($order->restau == "Anoual")
 				<h2>Cucina Napoli - Anoual</h2>
 				<ul>
 					<li>4 BD Anoual</li>
 					<li>Casablance</li>
 					<li>+212 5 20 33 83 50 | anoual@cucinanapoli.com</li>
 				</ul>
+				@endif
+				@if ($order->restau == "Palmier")
 				<h2>Cucina Napoli = Palmier</h2>
 				<ul>
 					<li>13 rue Ahmed Naciri, Angle Rue Saria Ibnou Zounaim</li>
 					<li>Casablanca</li>
-					<li>888-555-2311 | palmier@cucinanapoli.com</li>
+					<li>+212 5 20 57 24 34 | palmier@cucinanapoli.com</li>
 				</ul>
+				@endif
 			</div>
 			<div>
 				<table>

@@ -57,7 +57,7 @@ class OrderSummary extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromData(fn () => $this->pdf->output(), 'order-summary.pdf')
+            Attachment::fromData(fn () => $this->pdf->output(), "Commande-".$this->order->created_at->format("d-m-Y").".pdf")
                 ->withMime('application/pdf'),
         ];
     }
