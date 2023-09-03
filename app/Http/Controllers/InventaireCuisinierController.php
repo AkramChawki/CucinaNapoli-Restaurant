@@ -14,11 +14,6 @@ class InventaireCuisinierController extends Controller
     public function store(Request $request)
     {
         set_time_limit(500);
-        Artisan::call("optimize:clear");
-        $command1 = "composer install";
-        exec("{$command1}");
-        $command2 = "composer update";
-        exec("{$command2}");
         $qty = collect($request->qty)->filter(function ($value) {
             return $value !== null;
         })->values();
