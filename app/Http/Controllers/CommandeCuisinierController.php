@@ -32,10 +32,11 @@ class CommandeCuisinierController extends Controller
         $order->save();
         $pdf_name = "Commande-".$order->created_at->format("d-m-Y")."-".$order->id.".pdf";
         $pdf = Pdf::loadView('pdf.inventaire-summary', compact("order"))
-            ->save(public_path("storage/documents/$pdf_name"));
-
+        ->save(public_path("storage/documents/$pdf_name"));
+        
         Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order, $pdf_name));
-
+        $order->pdf = $pdf_name;
+        $order->save();
         return redirect("/");
     }
 }

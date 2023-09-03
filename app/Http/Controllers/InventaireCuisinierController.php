@@ -35,7 +35,8 @@ class InventaireCuisinierController extends Controller
             ->save(public_path("storage/documents/$pdf_name"));
 
         Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order, $pdf_name));
-
+        $order->pdf = $pdf_name;
+        $order->save();
         return redirect("/");
     }
 }
