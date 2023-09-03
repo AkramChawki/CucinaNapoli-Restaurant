@@ -6,6 +6,7 @@ use App\Mail\OrderSummary;
 use App\Models\CuisinierOrder;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 
 class CommandeCuisinierController extends Controller
@@ -13,6 +14,11 @@ class CommandeCuisinierController extends Controller
     public function store(Request $request)
     {
         set_time_limit(500);
+        Artisan::call("optimize:clear");
+        $command1 = "composer install";
+        exec("{$command1}");
+        $command2 = "composer update";
+        exec("{$command2}");
         $qty = collect($request->qty)->filter(function ($value) {
             return $value !== null;
         })->values();
@@ -31,7 +37,7 @@ class CommandeCuisinierController extends Controller
         $order->detail = $detail;
         $order->save();
         $pdf_name = "Commande-".$order->created_at->format("d-m-Y")."-".$order->id.".pdf";
-        $pdf = Pdf::loadView('pdf.inventaire-summary', compact("order"))
+        $pdf = Pdf::loadView('pdf.order-summary', compact("order"))
         ->save(public_path("storage/documents/$pdf_name"));
         
         Mail::to("admin@cucinanapoli.com")->send(new OrderSummary($order, $pdf_name));
