@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 
-function generate_pdf_and_save($view, $file_name, $directory)
+function generate_pdf_and_save($view,$data, $file_name, $directory)
 {
-    $pdf = new \mikehaertl\wkhtmlto\Pdf(view($view)->render());
+    $pdf = new \mikehaertl\wkhtmlto\Pdf(view($view, $data)->render());
     $pdf->binary = base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64');
     if (!$pdf->saveAs(public_path("storage/$directory/$file_name"))) {
         $error = $pdf->getError();
@@ -42,7 +42,7 @@ class InventaireCuisinierController extends Controller
         $order->detail = $detail;
         $order->save();
         $pdf_name = "Inventaire-".$order->created_at->format("d-m-Y")."-".$order->id.".pdf";
-        generate_pdf_and_save("pdf.inventaire-summary", $pdf_name, "documents");
+        generate_pdf_and_save("pdf.inventaire-summary",["order"=>$order], $pdf_name, "documents");
         Mail::to("admin@cucinanapoli.com")->send(new InventaireSummary($order, $pdf_name));
         $order->pdf = $pdf_name;
         $order->save();
