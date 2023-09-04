@@ -133,7 +133,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/commande-cuisinier', function () {
         $ficheId = request("ficheId");
         if ($ficheId == 2 || $ficheId == 3) {
-            $name = request("nom");
             $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
             $categories = collect([]);
             foreach ($products as $categoryId => $products) {
@@ -144,7 +143,6 @@ Route::middleware('auth')->group(function () {
             return Inertia::render('CommandeCuisinier/Commander', [
                 "categories" => $categories,
                 "ficheId" => $ficheId,
-                "name" => $name,
             ]);
         } else {
             return Inertia::render('CommandeCuisinier/CommandeCuisinier', [
@@ -156,7 +154,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/commande-cuisinier/commander', function () {
 
         $ficheId = request("ficheId");
-        $name = request("nom");
         $restau = request("restau");
         $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
         $categories = collect([]);
@@ -168,7 +165,6 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('CommandeCuisinier/Commander', [
             "categories" => $categories,
             "ficheId" => $ficheId,
-            "name" => $name,
             "restau" => $restau
         ]);
     });
@@ -177,7 +173,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/inventaire', function () {
         $ficheId = request("ficheId");
         if ($ficheId == 2 || $ficheId == 3 || $ficheId == 7) {
-            $name = request("nom");
             $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
             $categories = collect([]);
             foreach ($products as $categoryId => $products) {
@@ -188,7 +183,6 @@ Route::middleware('auth')->group(function () {
             return Inertia::render('Inventaire/Stock', [
                 "categories" => $categories,
                 "ficheId" => $ficheId,
-                "name" => $name,
             ]);
         } else {
             return Inertia::render('Inventaire/Inventaire', [
@@ -199,7 +193,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/inventaire/stock', function () {
         $ficheId = request("ficheId");
-        $name = request("nom");
         $restau = request("restau");
         $products = Fiche::find($ficheId)->cuisinier_products->groupBy('cuisinier_category_id');
         $categories = collect([]);
@@ -211,7 +204,6 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Inventaire/Stock', [
             "categories" => $categories,
             "ficheId" => $ficheId,
-            "name" => $name,
             "restau" => $restau
         ]);
     });
