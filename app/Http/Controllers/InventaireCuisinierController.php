@@ -24,17 +24,13 @@ class InventaireCuisinierController extends Controller
     public function store(Request $request)
     {
         set_time_limit(500);
-        $qty = collect($request->qty)->filter(function ($value) {
-            return $value !== null;
-        })->values();
+        $qty = array_filter($request->qty, fn($x) => !empty($x));
         $detail = [];
-        foreach ($request->products_ids as $i => $id) {
-            if (isset($qty[$i]) && $qty[$i] !== null) {
-                $detail[] = [
-                    "product_id" => $id,
-                    "qty" => $qty[$i]
-                ];
-            }
+        foreach ($qty as $i=>$value) {
+            $detail[] = [
+                "product_id" => $request->products_ids[$i],
+                "qty" => $value
+            ];
         }
         $order = new CuisinierInventaire();
         $order->name = $request->name;

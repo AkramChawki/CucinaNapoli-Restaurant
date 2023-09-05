@@ -140,9 +140,10 @@ Route::middleware('auth')->group(function () {
                 $category->products = $products;
                 $categories->push($category);
             }
-            return Inertia::render('CommandeCuisinier/Commander', [
+            return view('commande', [
                 "categories" => $categories,
                 "ficheId" => $ficheId,
+                "restau" => null,
             ]);
         } else {
             return Inertia::render('CommandeCuisinier/CommandeCuisinier', [
@@ -162,7 +163,7 @@ Route::middleware('auth')->group(function () {
             $category->products = $products;
             $categories->push($category);
         }
-        return Inertia::render('CommandeCuisinier/Commander', [
+        return view('commande', [
             "categories" => $categories,
             "ficheId" => $ficheId,
             "restau" => $restau
@@ -180,9 +181,10 @@ Route::middleware('auth')->group(function () {
                 $category->products = $products;
                 $categories->push($category);
             }
-            return Inertia::render('Inventaire/Stock', [
+            return view('stock', [
                 "categories" => $categories,
                 "ficheId" => $ficheId,
+                "restau" => null,
             ]);
         } else {
             return Inertia::render('Inventaire/Inventaire', [
@@ -201,7 +203,7 @@ Route::middleware('auth')->group(function () {
             $category->products = $products;
             $categories->push($category);
         }
-        return Inertia::render('Inventaire/Stock', [
+        return view('stock', [
             "categories" => $categories,
             "ficheId" => $ficheId,
             "restau" => $restau
@@ -229,6 +231,7 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Numeros/Ajouter');
     });
 });
+
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

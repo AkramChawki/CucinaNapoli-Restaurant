@@ -34,6 +34,8 @@ export default function Table({ categories, ficheId, restau }) {
                                                     name="qty[]"
                                                     className="focus:ring-green-500 focus:border-green-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md text-center"
                                                     placeholder="0"
+                                                    min={0}
+                                                    key={`q-${product.id}`}
                                                 />
                                                 <div className='text-center my-4'>
                                                     unité ({product.unite})
@@ -42,7 +44,7 @@ export default function Table({ categories, ficheId, restau }) {
                                         </div>
                                         <div className='flex justify-center my-4'>
                                             <input
-                                                type="checkbox"
+                                                type="hidden"
                                                 name="products_ids[]"
                                                 value={product.id}
                                                 className="focus:ring-green-500 h-7 w-7 text-green-600 border-black border-4 rounded "

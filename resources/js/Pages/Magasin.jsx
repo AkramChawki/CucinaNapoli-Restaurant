@@ -73,13 +73,12 @@ function Cuisinier() {
                         <a href="#" className="my-2 text-5xl font-bold text-white">
                             Fiche Magasin Général
                         </a>
-                        <Link
-                            href="/commande-cuisinier"
-                            data={{ ficheId: 3 }}
+                        <a
+                            href="/commande-cuisinier?ficheId=3"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div className="relative flex">
@@ -92,13 +91,12 @@ function Cuisinier() {
                         <a href="#" className="my-2 text-5xl font-bold text-white">
                         Inventaire Magasin Général
                         </a>
-                        <Link
-                            href="/inventaire"
-                            data={{ ficheId: 3 }}
+                        <a
+                            href="/inventaire?ficheId=3"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 

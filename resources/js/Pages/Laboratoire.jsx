@@ -73,13 +73,12 @@ function Laboratoire() {
                         <a href="#" className="my-2 text-5xl font-bold text-white">
                             Fiche Laboratoire
                         </a>
-                        <Link
-                            href="/commande-cuisinier"
-                            data={{ ficheId: 2 }}
+                        <a
+                            href="/commande-cuisinier?ficheId=2"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div className="relative flex">
@@ -92,13 +91,12 @@ function Laboratoire() {
                         <a href="#" className="my-2 text-5xl font-bold text-white">
                         Inventaire denrées
                         </a>
-                        <Link
-                            href="/inventaire"
-                            data={{ ficheId: 2 }}
+                        <a
+                            href="/inventaire?ficheId=2"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div className="relative flex">
@@ -111,13 +109,12 @@ function Laboratoire() {
                         <a href="#" className="my-2 text-5xl font-bold text-white">
                         Inventaire Ration
                         </a>
-                        <Link
-                            href="/inventaire"
-                            data={{ ficheId: 7 }}
+                        <a
+                            href="/inventaire?ficheId=7"
                             className="mt-4 font-medium text-gray-900 bg-white py-2.5 px-4 rounded-md hover:bg-gray-50"
                         >
                             Accéder
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 
