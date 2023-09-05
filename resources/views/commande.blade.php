@@ -2,7 +2,7 @@
 
 @section('content')
     <div class='max-w-7xl mx-auto sm:px-6 lg:px-8'>
-        <form method="post" action="/inventaire/stock">
+        <form method="post" action="/commande-cuisinier/commander">
             @csrf
             <div>
                 <input type="hidden" name="name" value={{ auth()->user()->name }} />
