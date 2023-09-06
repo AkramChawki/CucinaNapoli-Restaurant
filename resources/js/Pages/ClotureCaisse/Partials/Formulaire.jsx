@@ -9,6 +9,7 @@ export default function Formulaire() {
     const { auth } = usePage().props
     const [sign, setSign] = useState();
     const [url, setUrl] = useState();
+    
 
     const { data, setData, post, processing, errors } = useForm({
         name: auth.user.name,
@@ -77,6 +78,7 @@ export default function Formulaire() {
                                             value={data.date} onChange={e => setData('date', e.target.value)}
                                             className="flex-1 block  w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.date && <div>{errors.date}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -96,6 +98,7 @@ export default function Formulaire() {
                                             value={data.time} onChange={e => setData('time', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.time && <div>{errors.time}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -115,6 +118,7 @@ export default function Formulaire() {
                                             value={data.caissierE} onChange={e => setData('caissierE', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.caissierE && <div>{errors.caissierE}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -134,6 +138,7 @@ export default function Formulaire() {
                                             value={data.caissierS} onChange={e => setData('caissierS', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.caissierS && <div>{errors.caissierS}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -153,6 +158,7 @@ export default function Formulaire() {
                                             value={data.montant} onChange={e => setData('montant', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.montant && <div>{errors.montant}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -172,6 +178,7 @@ export default function Formulaire() {
                                             value={data.montantE} onChange={e => setData('montantE', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.montantE && <div>{errors.montantE}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -191,6 +198,7 @@ export default function Formulaire() {
                                             value={data.glovoE} onChange={e => setData('glovoE', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.glovoE && <div>{errors.glovoE}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -210,6 +218,7 @@ export default function Formulaire() {
                                             value={data.glovoC} onChange={e => setData('glovoC', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.glovoC && <div>{errors.glovoC}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -229,6 +238,7 @@ export default function Formulaire() {
                                             value={data.cartebancaire} onChange={e => setData('cartebancaire', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.cartebancaire && <div>{errors.cartebancaire}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -248,6 +258,7 @@ export default function Formulaire() {
                                             value={data.LivE} onChange={e => setData('LivE', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.LivE && <div>{errors.LivE}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -267,6 +278,7 @@ export default function Formulaire() {
                                             value={data.LivC} onChange={e => setData('LivC', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.LivC && <div>{errors.LivC}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -286,6 +298,7 @@ export default function Formulaire() {
                                             value={data.virement} onChange={e => setData('virement', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.virement && <div>{errors.virement}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -305,6 +318,7 @@ export default function Formulaire() {
                                             value={data.cheque} onChange={e => setData('cheque', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.cheque && <div>{errors.cheque}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -324,6 +338,7 @@ export default function Formulaire() {
                                             value={data.Compensation} onChange={e => setData('Compensation', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.Compensation && <div>{errors.Compensation}</div>}
                                     </div>
                                 </div>
                             </div>

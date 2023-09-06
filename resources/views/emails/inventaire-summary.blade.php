@@ -296,7 +296,7 @@
                                 style="font-size: 14px; line-height: 140%; text-align: center; word-wrap: break-word;">
                                 <p style="font-size: 14px; line-height: 140%;"><strong><span
                                       style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 22.4px;">Detaills
-                                      de la commande</span></strong></p>
+                                      de l'inventaire</span></strong></p>
                               </div>
 
                             </td>

@@ -121,7 +121,7 @@
 <body>
 	<div class="container">
 		<div class="inv-title">
-			<h1>Document</h1>
+			<h1>Inventaire</h1>
 		</div>
 		<img src="https://restaurant.cucinanapoli.com/images/logo/logo.jpg" class="inv-logo" />
 		<div class="inv-header">

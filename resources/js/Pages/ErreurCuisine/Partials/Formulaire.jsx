@@ -8,11 +8,11 @@ export default function Formulaire() {
     const { data, setData, post, processing, errors } = useForm({
         name: auth.user.name,
         restau: restau,
-        date: '',
-        produit: '',
-        entite: '',
-        plat: '',
-        motif: '',
+        date: "",
+        produit: "",
+        entite: "",
+        plat: "",
+        motif: "",
     })
 
     function submit(e) {
@@ -47,6 +47,7 @@ export default function Formulaire() {
                                             value={data.date} onChange={e => setData('date', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.date && <div>{errors.date}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +67,7 @@ export default function Formulaire() {
                                             value={data.produit} onChange={e => setData('produit', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.produit && <div>{errors.produit}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -89,6 +91,7 @@ export default function Formulaire() {
                                         <option value={"Salle"}>Salle</option>
                                         <option value={"Laboratoire"}>Laboratoire</option>
                                     </select>
+                                    {errors.entite && <div>{errors.entite}</div>}
                                 </div>
                             </div>
 
@@ -107,6 +110,7 @@ export default function Formulaire() {
                                         rows={3}
                                         className="max-w-lg shadow-sm block w-full focus:ring-green-500 focus:border-green-500 sm:text-sm border border-gray-300 rounded-md"
                                     />
+                                    {errors.plat && <div>{errors.plat}</div>}
                                 </div>
                             </div>
                             <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -129,6 +133,7 @@ export default function Formulaire() {
                                         <option value={"Mauvais Gout"}>Mauvais Gout</option>
                                         <option value={"Manipulation"}>Manipulation</option>
                                     </select>
+                                    {errors.motif && <div>{errors.motif}</div>}
                                 </div>
                             </div>
                         </div>

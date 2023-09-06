@@ -48,6 +48,7 @@ export default function Formulaire() {
                                             value={data.date} onChange={e => setData('date', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.date && <div>{errors.date}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -67,6 +68,7 @@ export default function Formulaire() {
                                             value={data.ticket} onChange={e => setData('ticket', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.ticket && <div>{errors.ticket}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -86,6 +88,7 @@ export default function Formulaire() {
                                             value={data.objet} onChange={e => setData('objet', e.target.value)}
                                             className="flex-1 block w-full focus:ring-green-500 focus:border-green-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
+                                        {errors.objet && <div>{errors.objet}</div>}
                                     </div>
                                 </div>
                             </div>
@@ -111,6 +114,7 @@ export default function Formulaire() {
                                         <option value={"Sur Place"}>Sur Place</option>
                                         <option value={"Livraison.ma"}>Livraison.ma</option>
                                     </select>
+                                    {errors.canal && <div>{errors.canal}</div>}
                                 </div>
                             </div>
 
@@ -129,6 +133,7 @@ export default function Formulaire() {
                                         rows={3}
                                         className="max-w-lg shadow-sm block w-full focus:ring-green-500 focus:border-green-500 sm:text-sm border border-gray-300 rounded-md"
                                     />
+                                    {errors.plat && <div>{errors.plat}</div>}
                                 </div>
                             </div>
                             <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -146,6 +151,7 @@ export default function Formulaire() {
                                         rows={3}
                                         className="max-w-lg shadow-sm block w-full focus:ring-green-500 focus:border-green-500 sm:text-sm border border-gray-300 rounded-md"
                                     />
+                                    {errors.motif && <div>{errors.motif}</div>}
                                 </div>
                             </div>
                         </div>
