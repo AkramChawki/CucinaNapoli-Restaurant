@@ -9,7 +9,7 @@ export default function Formulaire() {
     const { auth } = usePage().props
     const [sign, setSign] = useState();
     const [url, setUrl] = useState();
-    
+
 
     const { data, setData, post, processing, errors } = useForm({
         name: auth.user.name,
@@ -72,6 +72,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="date"
                                             name="date"
                                             id="date"
@@ -92,6 +93,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="time"
                                             name="time"
                                             id="time"
@@ -112,6 +114,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="text"
                                             name="caissierE"
                                             id="caissierE"
@@ -132,6 +135,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="text"
                                             name="caissierS"
                                             id="caissierS"
@@ -152,6 +156,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="montant"
                                             id="montant"
@@ -172,6 +177,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="montantE"
                                             id="montantE"
@@ -192,6 +198,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="glovoE"
                                             id="glovoE"
@@ -212,6 +219,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="glovoC"
                                             id="glovoC"
@@ -232,6 +240,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="cartebancaire"
                                             id="cartebancaire"
@@ -252,6 +261,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="LivE"
                                             id="LivE"
@@ -272,6 +282,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="LivC"
                                             id="LivC"
@@ -292,6 +303,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="virement"
                                             id="virement"
@@ -312,6 +324,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="cheque"
                                             id="cheque"
@@ -332,6 +345,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="number"
                                             name="compensation"
                                             id="compensation"
@@ -383,7 +397,7 @@ export default function Formulaire() {
                 </div>
                 <div className="flex justify-end">
                     <a
-                        href="/"  
+                        href="/"
                         type="button"
                         className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                     >

@@ -42,6 +42,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="date"
                                             name="date"
                                             id="date"
@@ -62,6 +63,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="text"
                                             name="ticket"
                                             id="ticket"
@@ -82,6 +84,7 @@ export default function Formulaire() {
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
                                         <input
+                                            required
                                             type="text"
                                             name="objet"
                                             id="objet"
